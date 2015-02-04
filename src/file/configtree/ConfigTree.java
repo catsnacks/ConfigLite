@@ -165,6 +165,14 @@ public class ConfigTree {
 			// no element found..
 			return false;
 		}
+		
+		/**
+		 * Clear all settings from an element
+		 */
+		public void clearSettings(){
+			settings.clear();
+		}
+		
 		/**
 		 * returns size of settings list
 		 * @return

@@ -126,6 +126,13 @@ public class FileHandler {
 	}
 	
 	/**
+	 * clears settings of given element
+	 * @param element
+	 */
+	public void clearSettings(String element){
+		config.getElement('['+element+']').clearSettings();
+	}
+	/**
 	 * returns an array of strings of the attributes from a given element
 	 * @param element
 	 * @return

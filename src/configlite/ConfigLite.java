@@ -541,7 +541,9 @@ public class ConfigLite {
 		return fh.setSetting(attr, "\'"+value+'\'');
 	}
 	
-	
+	public void clearSettings(String element){
+		fh.clearSettings(element);
+	}
 	
 	/**
 	 * debug method
