@@ -130,7 +130,11 @@ public class FileHandler {
 	 * @param element
 	 */
 	public void clearSettings(String element){
-		config.getElement('['+element+']').clearSettings();
+		element = '['+element.toUpperCase()+']';
+		if(config.hasElement(element))
+			config.getElement(element).clearSettings();
+		else
+			config.addElement(element);
 	}
 	/**
 	 * returns an array of strings of the attributes from a given element
