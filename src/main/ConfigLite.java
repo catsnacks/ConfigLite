@@ -2,7 +2,15 @@ package main;
 import java.io.IOException;
 
 import file.FileHandler;
+import file.configtree.ConfigTree.Element;
 
+/**
+ * Main class, this class should be instantiated, and all calls made through a single instance
+ * of this class
+ * @author Cat Snacks
+ * @version 1.0
+ *
+ */
 public class ConfigLite {
 	private FileHandler fh;
 	private boolean writeOnce=false; // if true, we wait til saveConfigFile() is called to write
@@ -120,7 +128,14 @@ public class ConfigLite {
 	}
 
 // THE NEXT METHODS ARE THE GETTERS, INVOKE enterElement() WHEN NECESSARY
-	
+	/**
+	 * returns element with given name
+	 * @param element
+	 * @return
+	 */
+	public Element getElement(String element){
+		return fh.getElement(element);
+	}
 	/**
 	 * Returns the value of attribute attr in element element
 	 * returns null if value isn't a string

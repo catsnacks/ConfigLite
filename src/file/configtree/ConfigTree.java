@@ -115,10 +115,20 @@ public class ConfigTree {
 			return null;
 		}
 		
+		/**
+		 * gets setting at specified index
+		 * @param index
+		 * @return
+		 */
 		public Setting getSetting(int index){
 			return settings.get(index);
 		}
 		
+		/**
+		 * returns true if element already has setting with given attribute name
+		 * @param attr
+		 * @return
+		 */
 		public boolean hasSetting(String attr){
 			for(int i=0; i<settings.size(); i++){
 				// if the element name = specified name

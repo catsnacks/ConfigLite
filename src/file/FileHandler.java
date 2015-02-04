@@ -108,6 +108,14 @@ public class FileHandler {
 	}
 	
 	/**
+	 * Gets element with given name
+	 * @param element
+	 * @return
+	 */
+	public Element getElement(String element){
+		return config.getElement(element);
+	}
+	/**
 	 * returns true if element already exists in config
 	 * @param element
 	 * @return
