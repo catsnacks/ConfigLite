@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 import file.configtree.ConfigTree;
 import file.configtree.ConfigTree.Element;
@@ -124,7 +125,19 @@ public class FileHandler {
 		return config.hasElement(element);
 	}
 	
-	
+	/**
+	 * returns an array of strings of the attributes from a given element
+	 * @param element
+	 * @return
+	 */
+	public String[] getSettings(String element){
+		List<Setting> settings =  config.getElement(element).getSettings();
+		String[] settinglist = new String[settings.size()];
+		for(int i=0;i<settings.size();i++){
+			settinglist[i] = settings.get(i).getAttribute();
+		}
+		return settinglist;
+	}
 	/**
 	 * returns value of specified attribute within the given element
 	 * @param element

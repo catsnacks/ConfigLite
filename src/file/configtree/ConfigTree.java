@@ -101,6 +101,13 @@ public class ConfigTree {
 		}
 		
 		/**
+		 * returns the list of settingss
+		 * @return
+		 */
+		public List<Setting> getSettings(){
+			return settings;
+		}
+		/**
 		 * Finds setting with specified attribute name
 		 * @param attr the attribute name
 		 * @return the setting with given attribute name

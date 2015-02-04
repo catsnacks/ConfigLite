@@ -1,4 +1,4 @@
-package main;
+package configlite;
 import java.io.IOException;
 
 import file.FileHandler;
@@ -86,6 +86,14 @@ public class ConfigLite {
 	}
 	
 	/**
+	 * gets a string array of the attributes of the given element
+	 * @param element
+	 * @return
+	 */
+	public String[] getSettings(String element){
+		return fh.getSettings(element);
+	}
+	/**
 	 * adds element to config
 	 * @param element
 	 * @return
@@ -129,7 +137,7 @@ public class ConfigLite {
 
 // THE NEXT METHODS ARE THE GETTERS, INVOKE enterElement() WHEN NECESSARY
 	/**
-	 * returns element with given name
+	 * returns element with given name, easier to use a SettingList though
 	 * @param element
 	 * @return
 	 */
