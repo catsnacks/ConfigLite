@@ -105,7 +105,6 @@ public class ConfigTree {
 		 * @return
 		 */
 		public List<Setting> getSettings(){
-			System.out.println("Gettingsettingsfor:"+this.name);
 			return settings;
 		}
 		/**

@@ -132,7 +132,6 @@ public class FileHandler {
 	 * @throws IOException 
 	 */
 	public String[] getSettings(String element){
-		System.out.println(element);
 		List<Setting> settinglist =  config.getElement('['+element+']').getSettings();
 		String[] settings = new String[settinglist.size()];
 		for(int i=0;i<settinglist.size();i++){

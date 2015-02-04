@@ -91,7 +91,6 @@ public class ConfigLite {
 	 * @return
 	 */
 	public String[] getSettingAttributes(String element){
-		System.out.println("here in configlite");
 		return fh.getSettings(element);
 	}
 	/**
