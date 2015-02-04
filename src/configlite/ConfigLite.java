@@ -132,7 +132,7 @@ public class ConfigLite {
 	 */
 	public boolean enterElement(String element){
 		element = element.toUpperCase();
-		return fh.setElement('['+element+']');
+		return fh.enterElement('['+element+']');
 	}
 
 // THE NEXT METHODS ARE THE GETTERS, INVOKE enterElement() WHEN NECESSARY
@@ -517,6 +517,30 @@ public class ConfigLite {
 		}
 		return true;
 	}
+
+// SETTERS
+	public boolean setSetting(String attr, String value){
+		value = '"'+value+'"';
+		return fh.setSetting(attr, value);	
+	}
+	
+	public boolean setSetting(String attr, int value){
+		return fh.setSetting(attr, String.valueOf(value));
+		
+	}
+	
+	public boolean setSetting(String attr, short value){
+		return fh.setSetting(attr, String.valueOf(value));
+	}
+	
+	public boolean setSetting(String attr, byte value){
+		return fh.setSetting(attr, String.valueOf(value));
+	}
+	
+	public boolean setSetting(String attr, char value){
+		return fh.setSetting(attr, "\'"+value+'\'');
+	}
+	
 	
 	
 	/**

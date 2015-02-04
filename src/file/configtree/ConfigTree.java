@@ -107,6 +107,26 @@ public class ConfigTree {
 		public List<Setting> getSettings(){
 			return settings;
 		}
+		
+		/**
+		 * updates a setting
+		 * @param attr
+		 * @param value
+		 * @return true if setting exists
+		 */
+		public boolean setSetting(String attr, String value){
+			for(int i=0; i<settings.size(); i++){
+				// if the element name = specified name
+				Setting s = settings.get(i);
+				if(s.getAttribute().equals(attr)){
+					s.setValue(value);
+					settings.set(i, s);
+				}
+			}
+			// no element found..
+			return false;
+		}
+		
 		/**
 		 * Finds setting with specified attribute name
 		 * @param attr the attribute name
@@ -181,6 +201,13 @@ public class ConfigTree {
 		 */
 		public String getValue(){
 			return value;
+		}
+		
+		/**
+		 * setter for value
+		 */
+		public void setValue(String value){
+			this.value = value;
 		}
 	}
 }

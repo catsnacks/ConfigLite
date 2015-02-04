@@ -89,7 +89,7 @@ public class FileHandler {
 	 * @param element
 	 * @return
 	 */
-	public boolean setElement(String element){
+	public boolean enterElement(String element){
 		currentElement = config.getElement(element);
 		if(currentElement != null) return true;
 		return false;
@@ -156,8 +156,18 @@ public class FileHandler {
 	}
 	
 	/**
+	 * updates setting
+	 * @param attr
+	 * @param value
+	 * @return true if setting exists
+	 */
+	public boolean setSetting(String attr, String value){
+		return currentElement.setSetting(attr, value);
+	}
+	
+	/**
 	 * returns value of specified attribute, this must be preceded with 
-	 * a setElement() call
+	 * a enterElementElement() call
 	 * @param attr
 	 * @return
 	 */
@@ -172,7 +182,7 @@ public class FileHandler {
 	
 
 	/**
-	 * adds element to config, must precede this with setElement
+	 * adds element to config, must precede this with enterElement
 	 * @param attr
 	 * @param value
 	 * @return
