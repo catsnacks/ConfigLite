@@ -90,7 +90,8 @@ public class ConfigLite {
 	 * @param element
 	 * @return
 	 */
-	public String[] getSettings(String element){
+	public String[] getSettingAttributes(String element){
+		System.out.println("here in configlite");
 		return fh.getSettings(element);
 	}
 	/**
@@ -516,5 +517,13 @@ public class ConfigLite {
 			}
 		}
 		return true;
+	}
+	
+	
+	/**
+	 * debug method
+	 */
+	public void dumpTree(){
+		fh.dumpTree();
 	}
 }

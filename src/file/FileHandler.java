@@ -129,14 +129,16 @@ public class FileHandler {
 	 * returns an array of strings of the attributes from a given element
 	 * @param element
 	 * @return
+	 * @throws IOException 
 	 */
 	public String[] getSettings(String element){
-		List<Setting> settings =  config.getElement(element).getSettings();
-		String[] settinglist = new String[settings.size()];
-		for(int i=0;i<settings.size();i++){
-			settinglist[i] = settings.get(i).getAttribute();
+		System.out.println(element);
+		List<Setting> settinglist =  config.getElement('['+element+']').getSettings();
+		String[] settings = new String[settinglist.size()];
+		for(int i=0;i<settinglist.size();i++){
+			settings[i] = settinglist.get(i).getAttribute();
 		}
-		return settinglist;
+		return settings;
 	}
 	/**
 	 * returns value of specified attribute within the given element
@@ -210,7 +212,7 @@ public class FileHandler {
 			// if the string isn't just whitespace..
 			if(stringRead.trim().length() > 0){
 				// if the string starts with a '[', it is a setting header
-				if(stringRead.charAt(0) == '['){
+				if(stringRead.charAt(0) == '[' && !config.hasElement(stringRead)){
 					// add to root
 					config.addElement(stringRead);
 					currentElement = config.getElement(stringRead);
@@ -223,7 +225,8 @@ public class FileHandler {
 						// add to the setting we're currently under
 						String attr = stringRead.substring(0, stringRead.indexOf('='));
 						String value = stringRead.substring(stringRead.indexOf('=')+1, stringRead.indexOf(';'));
-						currentElement.addSetting(attr, value);
+						if(!currentElement.hasSetting(attr))
+							currentElement.addSetting(attr, value);
 					}else{
 						System.out.println("Error: Malformed setting on line "+linesRead);
 					}
@@ -269,5 +272,18 @@ public class FileHandler {
 		}
 		
 		out.close();
+	}
+	
+	/**
+	 * Debug method
+	 */
+	public void dumpTree(){
+		for(int i=0;i<config.size();i++){
+			Element e = config.getElement(i);
+			System.out.println("E:"+e.getName());
+			for(int j=0;j<e.size();j++){
+				System.out.println(e.getSetting(j).getAttribute());
+			}
+		}
 	}
 }

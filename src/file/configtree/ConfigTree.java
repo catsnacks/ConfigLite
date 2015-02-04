@@ -55,7 +55,7 @@ public class ConfigTree {
 	 * @param name
 	 */
 	public void addElement(String name){
-		elements.add(new Element(name));
+		elements.add(new Element(name.toUpperCase()));
 	}
 	
 	/**
@@ -105,6 +105,7 @@ public class ConfigTree {
 		 * @return
 		 */
 		public List<Setting> getSettings(){
+			System.out.println("Gettingsettingsfor:"+this.name);
 			return settings;
 		}
 		/**
