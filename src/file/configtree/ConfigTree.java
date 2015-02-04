@@ -121,10 +121,12 @@ public class ConfigTree {
 				if(s.getAttribute().equals(attr)){
 					s.setValue(value);
 					settings.set(i, s);
+					return true;
 				}
 			}
 			// no element found..
-			return false;
+			addSetting(attr, value);
+			return true;
 		}
 		
 		/**
