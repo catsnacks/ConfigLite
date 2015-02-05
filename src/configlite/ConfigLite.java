@@ -93,6 +93,25 @@ public class ConfigLite {
 	public String[] getSettingAttributes(String element){
 		return fh.getSettings(element);
 	}
+	
+	/**
+	 * returns true iff setting exists in given element
+	 * @param element
+	 * @param attr
+	 * @return
+	 */
+	public boolean hasSetting(String element, String attr){
+		element = '['+element+']';
+		if(fh.hasElement(element)){
+			if(fh.getElement(element).hasSetting(attr))
+				return true;
+			else
+				return false;
+		}else{
+			return false;
+		}
+			
+	}
 	/**
 	 * adds element to config
 	 * @param element

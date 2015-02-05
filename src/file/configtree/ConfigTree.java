@@ -161,8 +161,9 @@ public class ConfigTree {
 		public boolean hasSetting(String attr){
 			for(int i=0; i<settings.size(); i++){
 				// if the element name = specified name
-				if(settings.get(i).getAttribute().equals(attr))
+				if(settings.get(i).getAttribute().equals(attr)){
 					return true;
+				}
 			}
 			// no element found..
 			return false;
